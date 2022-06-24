@@ -12,7 +12,6 @@ const Header = (props) => {
           <p className="link">Images</p>
           <User/>
         </div>
-
       </header>
   );
 };
