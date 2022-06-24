@@ -14,7 +14,7 @@ const SignInPage = ({ providers }) => {
             src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Google_2015_logo.svg/1200px-Google_2015_logo.svg.png"
             alt={`Image of ${provider.name}`}
             width="208"
-            height="100"
+            height="80"
             objectFit="contain"
           />
           <p className="text-sm italic my-10">

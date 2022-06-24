@@ -18,8 +18,8 @@ const User = (props) => {
         <Image
           src={session.user.image}
           alt="User Account"
-          width={40}
-          height={40}
+          width={35}
+          height={35}
           className="h-10 w-10 rounded-full hover:bg-gray-200 cursor-pointer"
         />
       </div>
