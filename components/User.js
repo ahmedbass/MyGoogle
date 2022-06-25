@@ -15,13 +15,12 @@ const User = (props) => {
     );
   } else {
     return (
-      <div onClick={signOut}>
+      <div onClick={signOut} className="w-10 h-10 relative hover:border-gray-700 border-transparent border-2">
         <Image
           src={session.user.image}
           alt="User Account"
-          width={35}
-          height={35}
-          className="h-10 w-10 rounded-full hover:bg-gray-200 cursor-pointer"
+          layout="fill"
+          className="rounded-full hover:bg-gray-200 cursor-pointer"
         />
       </div>
     );
