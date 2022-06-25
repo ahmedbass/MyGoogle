@@ -3,12 +3,13 @@ import Image from "next/image";
 
 const User = (props) => {
   const { data: session } = useSession();
-  console.log({ session });
+
   if (!session) {
     return (
       <button
         onClick={signIn}
-        className="bg-blue-500 text-white px-4 py-1 rounded-md font-medium hover:brightness-110 hover:shadow-md">
+        className="bg-blue-500 text-white px-4 py-1 rounded-md font-medium whitespace-nowrap 
+          text-sm sm:text-base hover:brightness-110 hover:shadow-md">
         Sign in
       </button>
     );
