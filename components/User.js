@@ -1,7 +1,7 @@
 import { signIn, signOut, useSession } from "next-auth/react";
 import Image from "next/image";
 
-const User = (props) => {
+const User = () => {
   const { data: session } = useSession();
 
   if (!session) {
@@ -15,12 +15,12 @@ const User = (props) => {
     );
   } else {
     return (
-      <div onClick={signOut} className="w-10 h-10 relative hover:border-gray-700 border-transparent border-2">
+      <div onClick={signOut} className="w-9 h-9 relative">
         <Image
           src={session.user.image}
           alt="User Account"
           layout="fill"
-          className="rounded-full hover:bg-gray-200 cursor-pointer"
+          className="rounded-full hover:bg-gray-200 cursor-pointer hover:!border-solid !border-blue-200"
         />
       </div>
     );
