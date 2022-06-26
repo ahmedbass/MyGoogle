@@ -1,27 +1,30 @@
 import { MicrophoneIcon, SearchIcon } from "@heroicons/react/solid";
-import { useCallback, useState } from "react";
+import { useCallback, useContext, useState } from "react";
 import Router from "next/router";
 import Header from "./../components/Header";
 import Logo from "../components/Logo";
 import { searchFor } from "../utils/search";
+import ToggleSearchSettings from "../components/ToggleSearchSettings";
+import SearchContext from "../store/search-context";
 
 export default function Home(props) {
   const autoFocus = useCallback((el) => el?.focus(), []);
   const [query, setQuery] = useState("");
+  const searchCtx = useContext(SearchContext);
 
-  const search = (e) => searchFor(e, Router, query, "all");
+  const search = (e) =>
+    searchFor(e, Router, { q: query.trim(), type: "", useMock: searchCtx.useMock });
 
   return (
     <>
       <Header />
-      <div className="h-full flex flex-col justify-center items-center">
-        <div className="w-full flex flex-col justify-center items-center -mt-40">
+      <div className=" flex flex-col justify-center items-center">
+        <div className="w-full flex flex-col justify-center items-center mt-40">
           <Logo width={300} />
           <form className="w-full flex flex-col justify-center items-center">
             <div
-              className="w-full flex my-8 py-3 px-4 rounded-full items-center justify-center border 
-                max-w-[90%] hover:shadow-md focus-within:shadow-md sm:max-w-xl lg:max-w-2xl"
-            >
+              className="w-full flex my-8 py-3 px-4 rounded-full items-center justify-center border
+                max-w-[90%] hover:shadow-md focus-within:shadow-md sm:max-w-xl lg:max-w-2xl">
               <SearchIcon className="h-5 text-gray-500" />
               <input
                 ref={autoFocus}

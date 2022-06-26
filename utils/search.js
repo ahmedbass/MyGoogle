@@ -1,8 +1,5 @@
-export function searchFor(e, router, query, type) {
-  e.preventDefault();
-  if (!query) return;
-  router.push({
-    pathname: "/search",
-    query: { q: query, type: type },
-  });
+export function searchFor(e, router, query) {
+  e?.preventDefault();
+  if (!query.q?.trim()) return;
+  router.push({ pathname: "/search", query });
 }
