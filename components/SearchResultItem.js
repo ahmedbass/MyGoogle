@@ -10,7 +10,7 @@ const SearchResultItem = ({ searchItem }) => {
         </a>
         <a
           href={searchItem.link}
-          className="group-hover:underline text-blue-800 font-semibold text-xl truncate">
+          className="group-hover:underline text-blue-800 font-semibold text-lg line-clamp-2">
           <h2>{searchItem.title}</h2>
         </a>
       </div>

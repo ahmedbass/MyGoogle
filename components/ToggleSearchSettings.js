@@ -10,7 +10,7 @@ const ToggleSearchSettings = (props) => {
   };
 
   return (
-    <div className="flex flex-col justify-center items-center sm:items-end space-y-1">
+    <div className="flex flex-col justify-center items-center sm:items-end space-y-1 sm:absolute right-4 bottom-4">
       <Label className="toggle">
         <input type="checkbox" onChange={handleMockChange} checked={searchCtx.useMock} />
         <span className="slider round"></span>

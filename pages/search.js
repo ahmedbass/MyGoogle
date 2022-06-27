@@ -21,13 +21,23 @@ export async function getServerSideProps(context) {
   const useMockData = context.query.useMock === "true";
   console.log({ useMockData });
 
-  const data = useMockData
-    ? MockSearchResults[Math.floor(Math.random() * MockSearchResults.length)]
-    : await fetch(
-        `https://www.googleapis.com/customsearch/v1?key=${process.env.DEV_API_KEY}&cx=${
-          process.env.CONTEXT_KEY
-        }&q=${context.query.q}&${context.query.type && "searchType=" + context.query.type}`
-      ).then((res) => res.json());
+  const getMockData = () => {
+    const filtered = MockSearchResults.filter(
+      (result) => (result.queries?.request[0]?.searchType || "") === (context.query?.type || "")
+    );
+    return filtered[Math.floor(Math.random() * filtered.length)];
+  };
+
+  const getRealData = async () =>
+    await fetch(
+      `https://www.googleapis.com/customsearch/v1?key=${process.env.DEV_API_KEY}&cx=${
+        process.env.CONTEXT_KEY
+      }&q=${context.query.q}&${context.query.type && "searchType=" + context.query.type}&start=${
+        context.query.start || 1
+      }`
+    ).then((res) => res.json());
+
+  const data = (useMockData ? getMockData() : getRealData()) || [];
 
   return {
     props: {

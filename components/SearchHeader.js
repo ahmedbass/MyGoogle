@@ -1,4 +1,4 @@
-import { MicrophoneIcon, SearchIcon, XIcon } from "@heroicons/react/solid";
+import { MicrophoneIcon, SearchIcon, XIcon } from "@heroicons/react/outline";
 import { useRouter } from "next/router";
 import React, { useContext, useEffect, useRef, useState } from "react";
 import Logo from "./Logo";
@@ -32,28 +32,28 @@ const SearchHeader = () => {
   useEffect(() => search(), [type]);
 
   return (
-    <header className="sticky top-0 bg-white p-3 sm:px-6 sm:pt-6">
+    <header className="sticky top-0 bg-white p-3 sm:p-6 pb-0 sm:pb-0">
       <div className="flex items-center justify-between">
         <Logo width={100} />
         <form
           onSubmit={search}
-          className="flex w-full lg:w-1/2 max-w-2xl mx-2 sm:mx-10 ring-1 ring-gray-200 p-3
-              rounded-full shadow-md space-x-1">
+          className="flex w-full lg:w-1/2 max-w-2xl mx-2 sm:mx-10 ring-1 ring-gray-200 px-3
+              rounded-full shadow-md space-x-3 items-center">
           <input
             ref={searchInputRef}
             type="text"
             defaultValue={query}
             onChange={(e) => setShowClearBtn(e.target.value.length > 0)}
-            className="w-full focus:outline-none mx-3"
+            className="w-full focus:outline-none p-3"
           />
           {showClearBtn && (
             <XIcon
-              className="h-6 text-gray-500 border-r-2 border-gray-300 pr-2 cursor-pointer"
+              className="h-7 text-gray-500 border-r border-gray-300 pr-2 cursor-pointer"
               onClick={clearSearchInput}
             />
           )}
-          <SearchIcon className="h-6 px-2 text-blue-500 cursor-pointer" onClick={search} />
-          <MicrophoneIcon className="h-6 px-2 text-blue-500 cursor-pointer" />
+          <MicrophoneIcon className="h-7 sm:px-1 text-blue-500 cursor-pointer" />
+          <SearchIcon className="h-7 sm:px-1 text-blue-500 cursor-pointer" onClick={search} />
         </form>
         <div className="sm:ml-auto">
           <User />
