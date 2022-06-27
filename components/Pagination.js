@@ -19,7 +19,7 @@ const Pagination = ({ currentReq }) => {
         Previous
       </PaginationButton>
 
-      <p>Current page {Math.ceil(currentReq.startIndex / currentReq.count)}</p>
+      <p>Page {Math.ceil(currentReq.startIndex / currentReq.count)}</p>
 
       <PaginationButton url={`${baseUrl}&start=${next}`}>
         Next

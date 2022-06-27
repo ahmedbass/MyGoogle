@@ -1,6 +1,5 @@
 import React from "react";
 import SearchResultItem from "./SearchResultItem";
-import Pagination from "./Pagination";
 
 const SearchResults = ({ results }) => {
   return (
@@ -10,12 +9,9 @@ const SearchResults = ({ results }) => {
         {results.searchInformation.formattedSearchTime} seconds)
       </p>
 
-      <div className="mt-4 space-y-7">
-        {results.items.map((item) => (
-          <SearchResultItem key={item.link} searchItem={item} />
-        ))}
-      </div>
-      <Pagination currentReq={results.queries.request[0]} />
+      {results.items.map((item) => (
+        <SearchResultItem key={item.link} searchItem={item} />
+      ))}
     </div>
   );
 };
