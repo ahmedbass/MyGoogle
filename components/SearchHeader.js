@@ -38,8 +38,7 @@ const SearchHeader = () => {
         <form
           onSubmit={search}
           className="flex w-full lg:w-1/2 max-w-2xl mx-2 sm:mx-10 ring-1 ring-gray-200 px-3
-              rounded-full shadow-md space-x-3 items-center"
-        >
+              rounded-full shadow-md space-x-3 items-center">
           <input
             ref={searchInputRef}
             type="text"
@@ -54,10 +53,7 @@ const SearchHeader = () => {
             />
           )}
           <MicrophoneIcon className="h-7 sm:px-1 text-blue-500 cursor-pointer" />
-          <SearchIcon
-            className="h-7 sm:px-1 text-blue-500 cursor-pointer"
-            onClick={search}
-          />
+          <SearchIcon className="h-7 sm:px-1 text-blue-500 cursor-pointer" onClick={search} />
         </form>
         <div className="sm:ml-auto">
           <User />

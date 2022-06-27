@@ -15,6 +15,15 @@ export default function Home(props) {
   const search = (e) =>
     searchFor(e, Router, { q: query.trim(), type: "", useMock: searchCtx.useMock });
 
+  const randomSearch = async (e) => {
+    e.preventDefault();
+    const word = (
+      await fetch("https://random-word-api.herokuapp.com/word").then((res) => res.json())
+    )[0];
+    const randomType = ["", "image"][Math.floor(Math.random() * 2)];
+    searchFor(e, Router, { q: word, type: randomType });
+  };
+
   return (
     <>
       <Header />
@@ -40,7 +49,9 @@ export default function Home(props) {
               <button className="btn" onClick={search}>
                 Google Search
               </button>
-              <button className="btn">I&#39;m Feeling Lucky</button>
+              <button className="btn" onClick={randomSearch}>
+                I&apos;m Feeling Lucky
+              </button>
             </div>
           </form>
         </div>

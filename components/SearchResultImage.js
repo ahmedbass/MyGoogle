@@ -4,7 +4,7 @@ const SearchResultImage = ({ searchItem }) => {
       <img
         src={searchItem.link}
         alt={searchItem.displayLink}
-        className="h-64 object-cover group-hover:shadow-xl"
+        className="h-64 object-cover hover:shadow-red-500 group-hover:shadow-lg "
       />
       <div className="hover:underline">
         <p className="text-sm font-semibold truncate">{searchItem.title}</p>
