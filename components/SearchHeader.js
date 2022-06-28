@@ -33,12 +33,15 @@ const SearchHeader = () => {
 
   return (
     <header className="sticky top-0 bg-white p-3 sm:p-6 pb-0 sm:pb-0">
-      <div className="flex items-center justify-between">
-        <Logo width={100} />
+      <div className="flex flex-col sm:flex-row items-center justify-between ">
+        <div className="order-1 mb-2 sm:mb-0">
+          <Logo width={100} />
+        </div>
+
         <form
           onSubmit={search}
-          className="flex w-full lg:w-1/2 max-w-2xl mx-2 sm:mx-10 ring-1 ring-gray-200 px-3
-              rounded-full shadow-md space-x-3 items-center">
+          className="group flex w-full lg:w-1/2 max-w-2xl mx-2 sm:mx-10 ring-1 ring-gray-200 px-3
+              rounded-full shadow-md space-x-3 items-center order-3 sm:order-2">
           <input
             ref={searchInputRef}
             type="text"
@@ -52,10 +55,11 @@ const SearchHeader = () => {
               onClick={clearSearchInput}
             />
           )}
-          <MicrophoneIcon className="h-7 sm:px-1 text-blue-500 cursor-pointer" />
+          <MicrophoneIcon className="h-7 sm:px-1 text-blue-500 cursor-pointer group-focus-within:hidden sm:inline-block" />
           <SearchIcon className="h-7 sm:px-1 text-blue-500 cursor-pointer" onClick={search} />
         </form>
-        <div className="sm:ml-auto">
+
+        <div className="sm:ml-auto order-3 absolute top-2 right-2 sm:relative sm:top-0 sm:right-0">
           <User />
         </div>
       </div>
